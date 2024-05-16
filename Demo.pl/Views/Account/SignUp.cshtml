@@ -1,0 +1,111 @@
+﻿
+@model SignUpViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    ViewData["Info"] = "Register.";
+
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<div class="container row">
+    <div class="container col-6 "style="margin-left:-60px; margin-top:-180px;">
+        <div class="register-container">
+            <div asp-validation-summary="All"> </div>
+            <form asp-action="SignUp">
+
+                <div class="top" style="margin-bottom:30px;">
+                    <h1>Sign Up</h1>
+                </div>
+
+                <div class="input-box">
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                    <input class="input-field" asp-for="UserName" placeholder="Username" required="">
+                    <i class="bx bx-user"></i>
+
+                </div>
+
+                <div class="row">
+                    <div class="input-box col-6">
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                        <input type="text" class="input-field" asp-for="FirstName" placeholder="First Name" required="">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box col-6">
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                        <input type="text" class="input-field" asp-for="LastName" placeholder="Last Name" required="">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+
+
+                <div class="input-box">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <input type="text" class="input-field" asp-for="Email" placeholder="Email" required="">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="row">
+                    <div class="input-box col-6">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                        <input type="password" class="input-field" asp-for="Password" placeholder="Password" required="">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box col-6">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                        <input type="password" class="input-field" asp-for="ConfirmPassword" placeholder="Confirm Password" required="">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:-10px; margin-left:5px;margin-bottom:10px;">
+                    <div class="">
+                        <input type="checkbox" asp-for="IsAgree" required="">
+                        <span> I Agree To The <a asp-action="" style="color:white">Terms & Conditions </a></span>
+                    </div>
+                    <div class="" style="margin-left:100px">
+                        <span>Have an account? <a asp-action="SignIn" style="color:white">Login</a></span>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Register">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div style="  border-left: 2px solid rgb(34, 35, 40);
+                      height: 400px;
+                      position:absolute;
+                      left: 50%;
+                      margin-top:-100px;
+                      margin-left:60px;
+                        ">
+    </div>
+
+    <div class="col-6">
+        <div class="container" style="margin-right:-150px; margin-top:10px">
+            <span class="d-block mb-3 text-white text-capitalize">Prepare for new future</span>
+            <h1 class="animated fadeInUp mb-5"> Welcome <br />To Our Website</h1>
+
+        </div>
+    </div>
+</div>
+
+
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

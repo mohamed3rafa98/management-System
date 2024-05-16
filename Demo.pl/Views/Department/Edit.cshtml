@@ -1,0 +1,24 @@
+﻿@model DepartmentViewModel
+
+
+@{    ViewData["Title"] = "Update"; }
+
+<div class="container">
+
+    <br />
+    <h1> Edit Department</h1>
+    <br />
+
+    <form asp-action="Edit" class="m-2">
+        <partial name="DepartmentPartialView/CreateEditPartialView" />
+        <div class="mt-2">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a asp-controller="Department" asp-action="Index" class="btn btn-light mr-3">Back To List</a>
+        </div>      
+    </form>
+</div>
+
+
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}

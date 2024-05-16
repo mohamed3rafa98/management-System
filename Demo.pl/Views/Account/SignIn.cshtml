@@ -1,0 +1,90 @@
+﻿@model SignInViewModel
+
+
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="form-box col-6" style="margin-top:-170px; margin-left:-50px;">
+            <div class="login-container " >
+                <div asp-validation-summary="All"> </div>
+                <form asp-action="SignIn" id="SignIn">
+                    <div class="top" style="margin-bottom:60px;">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Email" class="input-field" placeholder="Username or Email">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input asp-for="Password" class="input-field" placeholder="Password">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div id=""></div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Sign In">
+                    </div>
+                    <div class="two-col" style="margin-top:25px">
+                        <div class="one">
+                            <input type="checkbox" asp-for="RememberMe" id="login-check">
+                            <label for="login-check"> Remember Me</label>
+
+                            <span style="margin-left:25px">Don't have an account? <a asp-controller="Account" asp-action="SignUp" style="color:white">Sign Up</a></span>
+
+                        </div>
+                        <div class="two">
+                            <label><a asp-action="ForgetPassword">Forgot password?</a></label>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <div style="  border-left: 2px solid rgb(34, 35, 40);
+                      height: 300px;
+                      position:absolute;
+                      left: 50%;
+                      margin-top:-100px;                   
+                        ">
+                      
+        </div>
+        <div class="col-6">
+            <div class="container" style="margin-right:-150px; margin-top:-60px">
+                <span class="d-block mb-3 text-white text-capitalize">Prepare for new future</span>
+                <h1 class="animated fadeInUp mb-5"> Welcome <br />To Our Website</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+   
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

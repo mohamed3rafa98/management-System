@@ -1,0 +1,99 @@
+﻿
+@model IEnumerable<EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    // string ViewDataMSG = ViewData["Message"] as string;  // Required casting 
+    // string ViewBagMSG = ViewBag.Message ;  // not Required casting => dynamic word 
+    
+}
+@* @inject IUnitOfWork UnitOfWork *@
+<div class="m-5">
+
+    
+    <form asp-action="Index"  >
+        <div class=" row m-5 ">
+            <div class="col-8">
+                <input type="text" class="form-control" name="EmployeeSearchInput" id="EmployeeSearchInput" placeholder="Search..." oninput="Get();"/>
+            </div>
+            <div class="col-4">
+                <input type="submit" value="search"  class="btn btn-success"  />
+            </div>
+        </div>
+    </form>
+
+    <div class=" row m-5 ">
+        <div class="col-8">
+            <h1>All Employees</h1>
+        </div>
+        <div class="col-4">
+            <a asp-controller="Employee" asp-action="Create" class="btn btn-primary">  Create  </a>
+        </div>
+    </div>
+    
+
+    @*  @if(!string.IsNullOrEmpty(TempData["Message"]as string))
+        {
+            <div class="alert alert-primary ">
+            <p>@TempData["EmployeeMessage"]</p>
+            </div>
+        } *@
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th> @Html.DisplayNameFor(employee => employee.Image)               </th>
+                    <th> @Html.DisplayNameFor(employee => employee.Name)                </th>
+                    <th> @Html.DisplayNameFor(employee => employee.Age)                 </th>
+                    <th> @Html.DisplayNameFor(employee => employee.Salary)              </th>
+                    <th> @Html.DisplayNameFor(employee => employee.Address)             </th>
+                    <th> @Html.DisplayNameFor(employee => employee.Email)               </th>
+                    <th> @Html.DisplayNameFor(employee => employee.IsActive)            </th>
+                    <th> @Html.DisplayNameFor(employee => employee.IsDeleted)           </th>
+                    <th> @Html.DisplayNameFor(employee => employee.PhoneNumber)         </th>
+                    <th> @Html.DisplayNameFor(employee => employee.DateOfCreation)      </th>
+                    <th> @Html.DisplayNameFor(employee => employee.HiringDate)          </th>
+                    <th> @Html.DisplayNameFor(employee => employee.Department)     </th>
+                    <th>  Details   </th>
+                    <th>  Update    </th>
+                    <th>  Delete    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td> <img src="~/Files/images/@employee.ImageName" class="img-thumbnail " width="60"/>             </td>
+                        <td> @Html.DisplayFor(modelItem => employee.Name)                </td>
+                        <td> @Html.DisplayFor(modelItem => employee.Age)                 </td>
+                        <td> @Html.DisplayFor(modelItem => employee.Salary)              </td>
+                        <td> @Html.DisplayFor(modelItem => employee.Address)             </td>
+                        <td> @Html.DisplayFor(modelItem => employee.Email)               </td>
+                        <td> @Html.DisplayFor(modelItem => employee.IsActive)            </td>
+                        <td> @Html.DisplayFor(modelItem => employee.IsDeleted)           </td>
+                        <td> @Html.DisplayFor(modelItem => employee.PhoneNumber)         </td>
+                        <td> @Html.DisplayFor(modelItem => employee.DateOfCreation)      </td>
+                        <td> @Html.DisplayFor(modelItem => employee.HiringDate)          </td>
+                        <td> @Html.DisplayFor(modelItem => employee.Department.Name)     </td>
+
+                        <Partial name="_ButtonPartialView" model="@employee.Id.ToString();" />
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    else
+    {
+        <div class="mt-4 alert alert-warning">
+            <h4>There is no Employees </h4>
+        </div>
+    }
+
+</div>
+<!--Scroll to top-->
+<div id="scroll-to-top" class="scroll-to-top">
+    <span class="icon fa fa-angle-up"></span>
+</div>

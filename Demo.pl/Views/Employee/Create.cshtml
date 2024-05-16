@@ -1,0 +1,31 @@
+﻿@model EmployeeViewModel
+
+
+
+<div class="container"> 
+
+
+    <br />
+    <h1>Create Employee</h1>
+
+    <hr />
+    <div class="m-5">
+        <div>
+            <form asp-action="Create" enctype="multipart/form-data">
+                <partial name="PartialView/Create_Edit_PartialView" />
+                <div class="mt-5">
+                    <input type="hidden" asp-for="ImageName" />
+                    <input type="submit" value="Create" class="btn btn-primary mr-3" />
+                    <a asp-action="Index" class="btn btn-light">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section ValidationSection {
+    <partial name="_ValidationScriptsPartial" />
+}

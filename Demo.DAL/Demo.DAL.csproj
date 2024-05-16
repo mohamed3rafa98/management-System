@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\..\..\..\Data\Migrations\20240322081128_Add EmployeeDepartmentRelationShip.cs" Link="20240322081128_Add EmployeeDepartmentRelationShip.cs" />
+    <Compile Include="..\..\..\..\..\..\Data\Migrations\20240322081128_Add EmployeeDepartmentRelationShip.Designer.cs" Link="20240322081128_Add EmployeeDepartmentRelationShip.Designer.cs" />
+    <Compile Include="..\..\..\..\..\..\Data\Migrations\20240323025936_AddPathImage.cs" Link="20240323025936_AddPathImage.cs" />
+    <Compile Include="..\..\..\..\..\..\Data\Migrations\20240323025936_AddPathImage.Designer.cs" Link="20240323025936_AddPathImage.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.28" />
+  </ItemGroup>
+
+</Project>
